@@ -6,4 +6,4 @@ COPY . .
 
 RUN apk update && apk add sqlite sqlite-dev
 
-CMD ["/bin/sh", "-c", "python scriptSQL.py && python main.py"]
+CMD ["/bin/sh", "-c", "python database/scriptSQL.py && python main.py"]

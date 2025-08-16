@@ -21,7 +21,7 @@ def create_database():
                 title TEXT NOT NULL,
                 genre TEXT NOT NULL,
                 artist INTEGER NOT NULL,
-                realese TEXT NOT NULL,
+                releaseDate TEXT NOT NULL,
                 FOREIGN KEY (artist) REFERENCES Artist (id) ON DELETE SET NULL ON UPDATE CASCADE
             )         
         ''')
@@ -41,11 +41,24 @@ def create_database():
             INSERT INTO Artist (name) VALUES ('Taylor Swift')
         ''')
 
+        cursor.executed('''
+            INSERT INTO Album (title, genre, artist, releaseDate) VALUES ('Fearless', Country, 1, 11-11-2008),
+                                                                     ('Speak Now', Country, 1, 25-10-2010),
+                                                                     ('Red', Pop, 1, 22-10-2012),
+                                                                     ('1989, Pop, 1, 27-10-2014),
+                                                                     ('Reputation', Pop, 1, 10-11-2017),
+                                                                     ('Lover', Pop, 1, 23-08-2019),
+                                                                     ('Folklore', folk/indie, 1, 24-07-2020),
+                                                                     ('Evermore', folk/indie, 1, 11-12-2020),
+                                                                     ('Midnights', Pop, 1, 21-10-2022),
+                                                                     ('The Tortured Poets Department', Pop, 1, 19-04-2024)
+        ''')
+
         conn.commit()
 
         print("\nTabelas 'Album', 'Artist' e 'Music' criadas com sucesso!")
 
-        cursor.execute("SELECT * FROM Artist")
+        cursor.execute("SELECT * FROM Album")
 
         rows = cursor.fetchall()
 

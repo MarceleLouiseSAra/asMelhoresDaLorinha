@@ -12,7 +12,7 @@ def main():
 
         while True:
 
-            teste = int(input("insira 1 ou 2"))
+            teste = int(input("\ninsira 1 ou 2"))
 
             if (teste==1):
                 print("\noutra iteração do loop")
