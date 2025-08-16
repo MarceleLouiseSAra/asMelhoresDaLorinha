@@ -22,3 +22,4 @@ build "trava" nos logs do docker
 rotas
 conferir se as constraints estão funcionando
 inserir pelo menos um dado do tipo data "realese"
+toda vez que o container é iniciado, os dados são reinseridos

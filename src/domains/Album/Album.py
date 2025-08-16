@@ -9,7 +9,7 @@ class Album(interfaceAlbum):
 
     @property
     def title(self) -> str:
-        return self.__nome
+        return self.__title
     
     @property
     def genre(self) -> str:
