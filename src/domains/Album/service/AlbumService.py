@@ -46,18 +46,13 @@ def getAlbumByID(albumID : int) -> Album:
 
 def createAlbum(title : str, genre : str, releaseDate : str) -> Album:
 
+    objectAlbum = Album(title, genre, releaseDate)
+
     try:
         conn = sqlite3.connect('/code/db/sqlite.db')
         cursor = conn.cursor()
 
         cursor.execute("INSERT INTO Album (title, genre, releaseDate) VALUES (?, ?, ?)", (title, genre, releaseDate))
-
-        albumInfo = cursor.fetchall()
-
-        title, genre, releaseDate = albumInfo
-
-        objectAlbum = Album(title, genre, releaseDate)
-
 
     except sqlite3.Error as e:
         print("Erro ao acessar o banco de dados: {e}")
@@ -70,8 +65,6 @@ def createAlbum(title : str, genre : str, releaseDate : str) -> Album:
 
 def updateAlbum(albumID : int, title : str, genre : str, releaseDate : str) -> Album:
 
-    objectAlbum = Album(title, genre, releaseDate)
-
     try:
         conn = sqlite3.connect('/code/db/sqlite.db')
         cursor = conn.cursor()
@@ -79,6 +72,12 @@ def updateAlbum(albumID : int, title : str, genre : str, releaseDate : str) -> A
         cursor.execute("UPDATE Album SET title=? WHERE id=?", (title, albumID))
         cursor.execute("UPDATE Album SET genre=? WHERE id=?", (genre, albumID))
         cursor.execute("UPDATE Album SET releaseDate=? WHERE id=?", (releaseDate, albumID))
+
+        albumInfo = cursor.fetchall()
+
+        title, genre, releaseDate = albumInfo
+
+        objectAlbum = Album(title, genre, releaseDate)
 
     except sqlite3.Error as e:
         print("Erro ao acessar o banco de dados: {e}")

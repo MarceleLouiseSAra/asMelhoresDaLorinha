@@ -8,10 +8,10 @@ def routeGetAlbums() -> None:
 
 def routeGetAlbumByID(albumID : int) -> Album:
     
-    print("\nEste ID corresponde ao álbum: ")
     objectAlbum = getAlbumByID(albumID)
 
     if objectAlbum:
+        print(f"\nEste ID corresponde ao álbum: {objectAlbum.title}")
         return objectAlbum
     else:
         print("\nDesculpe, mas não existe álbum associado a tal ID.")

@@ -1,7 +1,9 @@
 import sqlite3
+from src.domains.Album.Album import Album
+from src.domains.Music.Music import Music
 from src.domains.Album.controller.AlbumController import routeDeleteAlbum, routeGetAlbums, routeGetAlbumByID, routePostAlbum, routePutAlbum
 from src.domains.Music.controller.MusicController import routeDeleteMusic, routeGetMusics, routeGetMusicByID, routePostMusic, routePutMusic
-from src.middlewares.authentications import verificaEntradaNumérica, verificaEntradaAlfabetica
+from src.middlewares.authentications import verificaEntradaNumérica, verificaEntradaAlfabetica, verificaData
 
 print("\nOlha nós outra vez no ar!")
 
@@ -58,27 +60,72 @@ def main():
             routeGetAlbums()
 
         elif (control==4):
-            albumID = print("Você deseja acessar um álbum específico. Que álbum é esse? Confira a lista de álbuns e seus respectivos IDs acima. ")
+            print("\nVocê deseja acessar um álbum específico. Que álbum é esse? Confira a lista de álbuns e seus respectivos IDs acima. ")
+            albumID = verificaEntradaNumérica()
             routeGetAlbumByID(albumID)
         
         elif (control==5):
-            albumID = print("Você deseja listar todas a músicas de um álbum. Que álbum é esse? Confira a lista de álbuns e seus respectivos IDs acima. ")
-            routeGetMusics(routeGetAlbumByID(albumID))
+            print("\nVocê deseja listar todas a músicas de um álbum. Que álbum é esse? Confira a lista de álbuns e seus respectivos IDs acima. ")
+            albumID = verificaEntradaNumérica()
+            # routeGetMusics(routeGetAlbumByID(albumID))
         
         elif (control==6):
-            musicID = print("Você deseja acessar uma música específica. Que música é essa? Estas são todas as músicas cadastradas nesta aplicação e seus respectivos IDs: ")
+            print("Você deseja acessar uma música específica. Que música é essa? Estas são todas as músicas cadastradas nesta aplicação e seus respectivos IDs: ")
+            routeGetMusics()
+            musicID = verificaEntradaNumérica()
             routeGetMusicByID(musicID)
 
         elif (control==7):
             print("\nVocê deseja atualizar um álbum. Que álbum é este? Confira a lista de álbuns e seus respectivos IDs acima. ")
-            albumID = verificaEntradaAlfabetica()
-            routePutAlbum(albumID)
+            albumID = verificaEntradaNumérica()
+            objectAlbum = routeGetAlbumByID(albumID)
+
+            print("\nQue informação você deseja atualizar? nome (1), gênero musical (2) ou data de lançamento (3)?")
+            control = verificaEntradaNumérica()
+
+            if (control==1):
+                print("\nInsira o novo nome do álbum: ")
+                albumTitle = verificaEntradaAlfabetica()
+                objectAlbum.title = albumTitle
+
+            elif (control==2):
+                print("\nInsira o novo gênero musical do álbum: ")
+                albumGenre = verificaEntradaAlfabetica()
+                objectAlbum.genre = albumGenre
+
+            elif (control==3):
+                print("\nInsira a nova data de lançamento do álbum: ")
+                albumReleaseDate = verificaData()
+                objectAlbum.releaseDate = albumReleaseDate
+
+            else:
+                print("\nApesar desta ser uma entrada válida, ela não significa nada para esta aplicação. Forneça uma entrada aplicável.")
+
+            routePutAlbum(albumID, objectAlbum.title, objectAlbum.genre, objectAlbum.releaseDate)
         
         elif (control==8):
             print("\nVocê deseja atualizar uma música. Que música é esta? Estas são todas as músicas cadastradas nesta aplicação e seus respectivos IDs: ")
             routeGetMusics()
-            musicID = verificaEntradaAlfabetica()
-            routePutMusic(musicID)
+            musicID = verificaEntradaNumérica()
+            objectMusic = routeGetMusicByID(musicID)
+
+            print("\nQue informação você deseja atualizar? nome (1) ou álbum (2)?")
+            control = verificaEntradaNumérica()
+
+            if (control==1):
+                print("\nInsira o novo nome da música: ")
+                musicTitle = verificaEntradaAlfabetica()
+                objectMusic.title = musicTitle
+
+            elif (control==2):
+                print("\nInsira o novo álbum ao qual a música pertence: ")
+                musicAlbum = verificaEntradaAlfabetica()
+                objectMusic.album = musicAlbum
+
+            else:
+                print("\nApesar desta ser uma entrada válida, ela não significa nada para esta aplicação. Forneça uma entrada aplicável.")
+
+            routePutMusic(musicID, objectMusic.title, objectMusic.album)
         
         elif (control==9):
             print("\nVocê deseja excluir um álbum. Que álbum é este? Confira a lista de álbuns e seus respectivos IDs acima. ")

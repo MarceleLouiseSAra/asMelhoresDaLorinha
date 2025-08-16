@@ -21,13 +21,13 @@ def getMusics() -> None:
         if conn:
             conn.close()
 
-def getMusicByID(MusicID : int) -> None:
+def getAlbumMusics(albumID : int) -> None: 
 
     try:
         conn = sqlite3.connect('/code/db/sqlite.db')
         cursor = conn.cursor()
 
-        cursor.execute("SELECT title FROM Music WHERE id=MusicID")
+        cursor.execute("SELECT title FROM Music WHERE album=?", (albumID))
 
         rows = cursor.fetchall()
 
@@ -41,7 +41,31 @@ def getMusicByID(MusicID : int) -> None:
         if conn:
             conn.close()
 
-def createMusic(title : str, album : int) -> None:
+
+def getMusicByID(musicID : int) -> Music:
+
+    try:
+        conn = sqlite3.connect('/code/db/sqlite.db')
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT title FROM Music WHERE id=?", (musicID))
+        
+        musicInfo = cursor.fetchall()
+
+        title, album = musicInfo
+
+        objectMusic = Music(title, album)
+
+    except sqlite3.Error as e:
+        print("Erro ao acessar o banco de dados: {e}")
+
+    finally:
+        if conn:
+            conn.close()
+
+    return objectMusic
+
+def createMusic(title : str, album : int) -> Music:
 
     objectMusic = Music(title, album)
 
@@ -49,14 +73,7 @@ def createMusic(title : str, album : int) -> None:
         conn = sqlite3.connect('/code/db/sqlite.db')
         cursor = conn.cursor()
 
-        cursor.execute('''
-            
-        ''')
-
-        rows = cursor.fetchall()
-
-        for row in rows:
-            print(row)
+        cursor.execute("INSERT INTO Music (title, album) VALUES (?, ?)", (title, album))
 
     except sqlite3.Error as e:
         print("Erro ao acessar o banco de dados: {e}")
@@ -65,17 +82,22 @@ def createMusic(title : str, album : int) -> None:
         if conn:
             conn.close()
 
-def updateAlbum(MusicID : int, title : str, album : int) -> None:
+    return objectMusic
 
-    objectMusic = Music(title, album)
+def updateMusic(musicID : int, title : str, album : int) -> Music:
 
     try:
         conn = sqlite3.connect('/code/db/sqlite.db')
         cursor = conn.cursor()
 
-        cursor.execute('''
-            
-        ''')
+        cursor.execute("UPDATE Music SET title=? WHERE id=?", (title, musicID))
+        cursor.execute("UPDATE Music SET album=? WHERE id=?", (album, musicID))
+
+        musicInfo = cursor.fetchall()
+
+        title, album = musicInfo
+
+        objectMusic = Music(title, album)
 
     except sqlite3.Error as e:
         print("Erro ao acessar o banco de dados: {e}")
@@ -84,15 +106,21 @@ def updateAlbum(MusicID : int, title : str, album : int) -> None:
         if conn:
             conn.close()
 
-def deleteAlbum(MusicID : int) -> None:
+    return objectMusic
+
+def deleteMusic(musicID : int) -> Music:
 
     try:
         conn = sqlite3.connect('/code/db/sqlite.db')
         cursor = conn.cursor()
 
-        cursor.execute('''
-            
-        ''')
+        cursor.execute("SELECT title, album FROM Music WHERE id=?", (musicID))
+
+        musicInfo = cursor.fetchall()
+
+        title, album = musicInfo
+
+        objectMusic = Music(title, album)
 
     except sqlite3.Error as e:
         print("Erro ao acessar o banco de dados: {e}")
@@ -100,3 +128,5 @@ def deleteAlbum(MusicID : int) -> None:
     finally:
         if conn:
             conn.close()
+
+    return objectMusic
