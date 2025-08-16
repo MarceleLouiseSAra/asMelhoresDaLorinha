@@ -26,7 +26,7 @@ def verificaEntradaAlfabetica():
         if not(entradaAlfabetica.isalpha()):
             
             for caractere in range(len(entradaAlfabetica)):
-                if entradaAlfabetica[caractere].isalpha() or entradaAlfabetica[caractere].isspace() or entradaAlfabetica[caractere].isdigit():
+                if entradaAlfabetica[caractere].isalpha() or entradaAlfabetica[caractere].isspace():
                     controle = 1
                     continue
                 else: 
@@ -41,3 +41,6 @@ def verificaEntradaAlfabetica():
             return entradaAlfabetica
         else:
             continue
+
+def verificaData():
+    pass

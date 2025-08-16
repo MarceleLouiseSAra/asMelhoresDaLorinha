@@ -1,4 +1,4 @@
-from interfaceMusic import interfaceMusic
+from src.domains.Music.interfaceMusic import interfaceMusic
 
 class Music(interfaceMusic):
     def __init__(self, title : str, album : int) -> None:

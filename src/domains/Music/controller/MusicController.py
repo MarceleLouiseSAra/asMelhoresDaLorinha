@@ -1,17 +1,17 @@
-
+from src.domains.Music.service.MusicService  import getMusics, getMusicByID, createMusic, updateAlbum, deleteAlbum
 from src.middlewares import authentications
 
-def routeGet() -> None:
+def routeGetMusics() -> None:
     pass
 
-def routeetByID() -> None:
+def routeGetMusicByID() -> None:
     pass
 
-def routePost() -> None:
+def routePostMusic() -> None:
     pass
 
-def routePut() -> None:
+def routePutMusic() -> None:
     pass
 
-def routeDelete() -> None:
+def routeDeleteMusic() -> None:
     pass

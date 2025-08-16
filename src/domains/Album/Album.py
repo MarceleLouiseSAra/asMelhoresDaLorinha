@@ -1,4 +1,4 @@
-from interfaceAlbum import interfaceAlbum
+from src.domains.Album.interfaceAlbum import interfaceAlbum
 
 class Album(interfaceAlbum):
     def __init__(self, title : str, genre : str, releaseDate : str) -> None:

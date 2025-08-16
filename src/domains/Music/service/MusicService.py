@@ -1,4 +1,4 @@
-from Music.Music import Music
+from src.domains.Music.Music import Music
 import sqlite3
 
 def getMusics() -> None:
