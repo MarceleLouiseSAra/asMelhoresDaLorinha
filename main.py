@@ -2,7 +2,7 @@ import sqlite3
 from src.domains.Album.Album import Album
 from src.domains.Music.Music import Music
 from src.domains.Album.controller.AlbumController import routeDeleteAlbum, routeGetAlbums, routeGetAlbumByID, routePostAlbum, routePutAlbum
-from src.domains.Music.controller.MusicController import routeDeleteMusic, routeGetMusics, routeGetMusicByID, routePostMusic, routePutMusic
+from src.domains.Music.controller.MusicController import routeDeleteMusic, routeGetMusics, routeGetAlbumMusics, routeGetMusicByID, routePostMusic, routePutMusic
 from src.middlewares.authentications import verificaEntradaNumérica, verificaEntradaAlfabetica, verificaData
 
 print("\nOlha nós outra vez no ar!")
@@ -67,7 +67,7 @@ def main():
         elif (control==5):
             print("\nVocê deseja listar todas a músicas de um álbum. Que álbum é esse? Confira a lista de álbuns e seus respectivos IDs acima. ")
             albumID = verificaEntradaNumérica()
-            # routeGetMusics(routeGetAlbumByID(albumID))
+            routeGetAlbumMusics(albumID)
         
         elif (control==6):
             print("Você deseja acessar uma música específica. Que música é essa? Estas são todas as músicas cadastradas nesta aplicação e seus respectivos IDs: ")
