@@ -25,10 +25,11 @@ def main():
         "\nPara listar um álbum específico, digite '4'." 
         "\nPara listar todas as músicas de um álbum, digite '5'."
         "\nPara listar uma música específica, digite '6'." 
-        "\nPara atualizar um álbum, digite '7'."
-        "\nPara atualizar uma música, digite '8'."
-        "\nPara excluir um álbum, digite '9'."
-        "\nPara excluir uma música, digite '10'."
+        "\nPara listar todas as músicas já cadastradas, digite '7'." 
+        "\nPara atualizar um álbum, digite '8'."
+        "\nPara atualizar uma música, digite '9'."
+        "\nPara excluir um álbum, digite '10'."
+        "\nPara excluir uma música, digite '11'."
         "\nPara fechar a aplicação, digite '0'."
         )
 
@@ -76,6 +77,9 @@ def main():
             routeGetMusicByID(musicID)
 
         elif (control==7):
+            routeGetMusics()
+
+        elif (control==8):
             print("\nVocê deseja atualizar um álbum. Que álbum é este? ")
             albumID = verificaEntradaNumérica()
             objectAlbum = routeGetAlbumByID(albumID)
@@ -103,7 +107,7 @@ def main():
 
             routePutAlbum(albumID, objectAlbum.title, objectAlbum.genre, objectAlbum.releaseDate)
         
-        elif (control==8):
+        elif (control==9):
             print("\nVocê deseja atualizar uma música. Que música é esta? Estas são todas as músicas cadastradas nesta aplicação e seus respectivos IDs: ")
             routeGetMusics()
             musicID = verificaEntradaNumérica()
@@ -127,12 +131,12 @@ def main():
 
             routePutMusic(musicID, objectMusic.title, objectMusic.album)
         
-        elif (control==9):
+        elif (control==10):
             print("\nVocê deseja excluir um álbum. Que álbum é este? ")
             albumID = verificaEntradaNumérica()
             routeDeleteAlbum(albumID)
         
-        elif (control==10):
+        elif (control==11):
             print("\nVocê deseja excluir uma música. Que música é esta? Estas são todas as músicas cadastradas nesta aplicação e seus respectivos IDs: ")
             routeGetMusics()
             musicID = verificaEntradaNumérica()
