@@ -1,6 +1,6 @@
 # asMelhoresDaLorinha
 
-O presente projeto consiste um banco de dados interativo, em que o usuário pode registrar, excluir, acessar e atualizar novos álbuns e músicas da Taylor Swift. Através do prompt de comando, o usuário fornece entradas e recebe respostas explicativas que o orientam acerca de como usar a aplicação.
+O presente projeto consiste em um banco de dados interativo, em que o usuário pode registrar, excluir, acessar e atualizar novos álbuns e músicas da Taylor Swift. Através do prompt de comando, o usuário fornece entradas e recebe respostas explicativas que o orientam acerca de como usar a aplicação.
 
 Trata-se de uma aplicação de console desenvolvida em Linguagem Python, que utiliza o SQLite como banco de dados e Docker para promover a sua containerização e persistência desses dados, ambas de suma importancia para garantir a portabilidade e a consistência do sistema.
 
