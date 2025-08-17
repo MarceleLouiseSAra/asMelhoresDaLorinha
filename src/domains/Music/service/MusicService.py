@@ -7,7 +7,7 @@ def getMusics() -> None:
         conn = sqlite3.connect('/code/database/sqlite.db')
         cursor = conn.cursor()
 
-        cursor.execute("SELECT id, title FROM Music")
+        cursor.execute("SELECT id, title, album FROM Music")
 
         rows = cursor.fetchall()
 
