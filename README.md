@@ -6,7 +6,9 @@ Trata-se de uma aplicação de console desenvolvida em Linguagem Python, que uti
 
 Utilizou-se a arquitetura MVC (Model-View-Controller) para separar os dados e regras de negócio (Model) da interface com a qual o usuário interage (View). A intermediação destes é feita pelo Controller, que recebe as requisições do usuário, solicita a sua execução ao Model e atualiza a View com a resposta.
 
-Foram usados os tipos de dados **INTEGER** e **TEXT**, este último suportando datas formatadas segundo o padrão ISO ('YYYY-MM-DD'). No que tange a **CONSTRAINTS**, somente a propriedade _album_, da tabela _Music_, é opcional (pois uma música pode ser single). Essa tabela também contém duas **FOREIGN KEYs**: _album_ e _artist_. Aquela propaga em caso de atualização (ON UPDATE CASCADE) e essa restringe a ação de exclusão da tupla correspondente na relação referenciada ("ON DELETE RESTRICT"). A relação _Album_ faz o mesmo para sua chave estrangeira de mesmo nome.
+Foram usados os tipos de dados **INTEGER** e **TEXT**, este último suportando datas formatadas segundo o padrão ISO ('YYYY-MM-DD'). No que tange a **CONSTRAINTS**, somente a propriedade _album_, da tabela _Music_, é opcional (pois uma música pode ser single). 
+
+Essa tabela também contém duas **FOREIGN KEYs**: _album_ e _artist_. Aquela propaga em caso de atualização ("ON UPDATE CASCADE") e insere um valor nulo em caso de exclusão ("ON DELETE SET NULL"), e essa restringe a ação de exclusão da tupla correspondente na relação referenciada ("ON DELETE RESTRICT"). A relação _Album_ faz o mesmo para sua chave estrangeira de mesmo nome.
 
 Na pasta _middlewares_ estão funções que verificam a formatação das entradas fornecidas pelo usuário.
 
@@ -22,7 +24,7 @@ Os comandos acima, respectivamente, buildam a imagem e anexam um segundo termina
 
 ## Modo de uso:
 
-Uma vez que a imagem já foi construída, também é possível utilizar este comando:
+Uma vez que a imagem foi construída, também é possível utilizar este comando:
 
 ```bash:
 docker compose run --rm db
