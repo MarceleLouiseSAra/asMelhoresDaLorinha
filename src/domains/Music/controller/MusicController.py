@@ -25,7 +25,9 @@ def routeGetMusicByID(musicID : int) -> Music:
 def routePostMusic(musicTitle : str, musicAlbum : int) -> None:
 
     objectMusic = createMusic(musicTitle, musicAlbum)
-    print(f"\nA música {objectMusic.title}, do álbum {objectMusic.album} foi adicionada com sucesso ao banco de dados.")
+
+    if objectMusic:
+        print(f"\nA música {objectMusic.title}, do álbum {objectMusic.album} foi adicionada com sucesso ao banco de dados.")
     
 
 def routePutMusic(musicID : int, musicTitle : str, musicAlbum : int) -> None:

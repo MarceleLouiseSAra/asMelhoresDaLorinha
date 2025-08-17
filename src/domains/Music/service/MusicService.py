@@ -123,7 +123,7 @@ def updateMusic(musicID : int, title : str, album : int) -> Music:
 def deleteMusic(musicID : int) -> Music:
 
     try:
-        conn = sqlite3.connect('/code/db/sqlite.db')
+        conn = sqlite3.connect('/code/database/sqlite.db')
         cursor = conn.cursor()
 
         cursor.execute("SELECT title, album FROM Music WHERE id=?", (musicID,))
@@ -132,11 +132,11 @@ def deleteMusic(musicID : int) -> Music:
 
         if musicInfo:
 
-            title, album = musicInfo
+            title, album = musicInfo[0]
 
             objectMusic = Music(title, album)
 
-            cursor.execute("DELETE FROM Music WHERE if=?", (musicID,))
+            cursor.execute("DELETE FROM Music WHERE id=?", (musicID,))
 
             conn.commit()
 
