@@ -11,7 +11,7 @@ def main():
 
 
     print("\nOlá!, seja bem vinde! Esta aplicação te permite reunir suas músicas favoritas da Taylor Swift!"
-    "\nEle conta com todos os álbuns já lançados até o momento e te permite adicionar as músicas que você mais gosta a cada um deles,"
+    "\nEla conta com todos os álbuns já lançados até o momento e te permite adicionar as músicas que você mais gosta a cada um deles,"
     "\ncomo uma playlist personalizada organizada por álbum.")
 
     print("\nDica: por que não adiciona um novo álbum?, 'The Life of a Showgirl', um álbum Pop a ser lançado no dia 3 de outubro de 2025.")

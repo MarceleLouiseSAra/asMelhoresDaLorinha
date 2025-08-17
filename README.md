@@ -14,5 +14,6 @@ docker compose up --build
 Em outro terminal, insira:
 
 ```bash:
-docker compose run db
+docker compose run --rm db
 ```
+
