@@ -27,7 +27,7 @@ def routePostMusic(musicTitle : str, musicAlbum : int) -> None:
     objectMusic = createMusic(musicTitle, musicAlbum)
 
     if objectMusic:
-        print(f"\nA música {objectMusic.title}, do álbum {objectMusic.album} foi adicionada com sucesso ao banco de dados.")
+        print(f"\nA música {objectMusic.title}, do álbum {objectMusic.album}, foi adicionada com sucesso ao banco de dados.")
     
 
 def routePutMusic(musicID : int, musicTitle : str, musicAlbum : int) -> None:
@@ -35,7 +35,7 @@ def routePutMusic(musicID : int, musicTitle : str, musicAlbum : int) -> None:
     objectMusic = updateMusic(musicID, musicTitle, musicAlbum)
 
     if objectMusic:
-        print(f"\nA música {objectMusic.title}, do álbum {objectMusic.album} foi atualizada com sucesso.")
+        print(f"\nA música {objectMusic.title}, do álbum {objectMusic.album}, foi atualizada com sucesso.")
         return objectMusic
     else:
         print("\nDesculpe, mas não existe música associada a tal ID.")

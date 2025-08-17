@@ -50,7 +50,7 @@ def main():
             print("\nVocê deseja adicionar uma nova música. Qual o nome desta? ")
             musicTitle = verificaEntradaAlfabetica()
 
-            print("\nA que álbum pertence esta música? Confira a lista de álbuns e seus respectivos IDs acima. ")
+            print("\nA que álbum pertence esta música? Digite '3' para conferir a lista de álbuns e seus respectivos IDs. ")
             musicAlbum = verificaEntradaNumérica()
 
             routePostMusic(musicTitle, musicAlbum)
@@ -60,12 +60,12 @@ def main():
             routeGetAlbums()
 
         elif (control==4):
-            print("\nVocê deseja acessar um álbum específico. Que álbum é esse? Confira a lista de álbuns e seus respectivos IDs acima. ")
+            print("\nVocê deseja acessar um álbum específico. Que álbum é esse? Digite '3' para conferir a lista de álbuns e seus respectivos IDs. ")
             albumID = verificaEntradaNumérica()
             routeGetAlbumByID(albumID)
         
         elif (control==5):
-            print("\nVocê deseja listar todas a músicas de um álbum. Que álbum é esse? Confira a lista de álbuns e seus respectivos IDs acima. ")
+            print("\nVocê deseja listar todas a músicas de um álbum. Que álbum é esse? Digite '3' para conferir a lista de álbuns e seus respectivos IDs. ")
             albumID = verificaEntradaNumérica()
             routeGetAlbumMusics(albumID)
         
@@ -76,7 +76,7 @@ def main():
             routeGetMusicByID(musicID)
 
         elif (control==7):
-            print("\nVocê deseja atualizar um álbum. Que álbum é este? Confira a lista de álbuns e seus respectivos IDs acima. ")
+            print("\nVocê deseja atualizar um álbum. Que álbum é este? Digite '3' para conferir a lista de álbuns e seus respectivos IDs. ")
             albumID = verificaEntradaNumérica()
             objectAlbum = routeGetAlbumByID(albumID)
 
@@ -128,7 +128,7 @@ def main():
             routePutMusic(musicID, objectMusic.title, objectMusic.album)
         
         elif (control==9):
-            print("\nVocê deseja excluir um álbum. Que álbum é este? Confira a lista de álbuns e seus respectivos IDs acima. ")
+            print("\nVocê deseja excluir um álbum. Que álbum é este? Digite '3' para conferir a lista de álbuns e seus respectivos IDs. ")
             albumID = verificaEntradaNumérica()
             routeDeleteAlbum(albumID)
         

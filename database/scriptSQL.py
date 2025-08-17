@@ -44,7 +44,8 @@ def create_database():
         ''')
 
         cursor.execute('''
-            INSERT INTO Album (title, genre, artist, releaseDate) VALUES ('Fearless', 'Country', 1, '2008-11-11'),
+            INSERT INTO Album (title, genre, artist, releaseDate) VALUES ('Taylor Swift', 'Country', 1, '2006-10-24'),
+                                                                     ('Fearless', 'Country', 1, '2008-11-11'),
                                                                      ('Speak Now', 'Country', 1, '2010-10-25'),
                                                                      ('Red', 'Pop', 1, '2012-10-22'),
                                                                      ('1989', 'Pop', 1, '2014-10-27'),
