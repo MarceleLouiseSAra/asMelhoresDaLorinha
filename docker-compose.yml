@@ -6,7 +6,7 @@ services:
     ports: 
       - "8000:8000"
     volumes:
-      - db_data:/code/db
+      - db_data:/code/database
 
 volumes:
   db_data:

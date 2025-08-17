@@ -42,7 +42,7 @@ def main():
             albumGenre = verificaEntradaAlfabetica()
 
             print("\nQual a data de lançamento deste álbum? ")
-            albumReleaseDate = verificaEntradaAlfabetica()
+            albumReleaseDate = verificaData()
 
             routePostAlbum(albumTitle, albumGenre, albumReleaseDate)
 
@@ -129,13 +129,13 @@ def main():
         
         elif (control==9):
             print("\nVocê deseja excluir um álbum. Que álbum é este? Confira a lista de álbuns e seus respectivos IDs acima. ")
-            albumID = verificaEntradaAlfabetica()
+            albumID = verificaEntradaNumérica()
             routeDeleteAlbum(albumID)
         
         elif (control==10):
             print("\nVocê deseja excluir uma música. Que música é esta? Estas são todas as músicas cadastradas nesta aplicação e seus respectivos IDs: ")
             routeGetMusics()
-            musicID = verificaEntradaAlfabetica()
+            musicID = verificaEntradaNumérica()
             routeDeleteMusic(musicID)
 
         elif (control==0):

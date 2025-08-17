@@ -1,4 +1,6 @@
-def verificaEntradaNumérica():
+from datetime import datetime
+
+def verificaEntradaNumérica() -> int:
     
     while True:
 
@@ -17,7 +19,7 @@ def verificaEntradaNumérica():
             else:
                 return entradaNumerica 
 
-def verificaEntradaAlfabetica():
+def verificaEntradaAlfabetica() -> str:
     
     while True:
         
@@ -42,5 +44,18 @@ def verificaEntradaAlfabetica():
         else:
             continue
 
-def verificaData():
-    pass
+def verificaData() -> str:
+
+    while True:
+    
+        data = input("Insira a data no formato 'DD-MM-YYYY': ")
+
+        try:
+            dataFormatada = datetime.strptime(data, '%d-%m-%Y').strftime('%Y-%m-%d')
+            return dataFormatada
+        
+        except (ValueError, TypeError):
+            print("\nO formato da entrada dada não é o adequado:  Use 'DD-MM-YYYY'.")
+
+        except Exception as erro:
+            print(f"\nFoi encontrado um {erro.__class__}. Forneça uma entrada válida.")

@@ -2,9 +2,11 @@ import sqlite3
 
 def create_database():
 
+    conn = None
+
     try:
 
-        conn = sqlite3.connect('/code/db/sqlite.db')
+        conn = sqlite3.connect('/code/database/sqlite.db')
 
         cursor = conn.cursor()
 
@@ -42,30 +44,19 @@ def create_database():
         ''')
 
         cursor.execute('''
-            INSERT INTO Album (title, genre, artist, releaseDate) VALUES ('Fearless', 'Country', 1, 11-11-2008),
-                                                                     ('Speak Now', 'Country', 1, 25-10-2010),
-                                                                     ('Red', 'Pop', 1, 22-10-2012),
-                                                                     ('1989', 'Pop', 1, 27-10-2014),
-                                                                     ('Reputation', 'Pop', 1, 10-11-2017),
-                                                                     ('Lover', 'Pop', 1, 23-08-2019),
-                                                                     ('Folklore', 'folk/indie', 1, 24-07-2020),
-                                                                     ('Evermore', 'folk/indie', 1, 11-12-2020),
-                                                                     ('Midnights', 'Pop', 1, 21-10-2022),
-                                                                     ('The Tortured Poets Department', 'Pop', 1, 19-04-2024)
+            INSERT INTO Album (title, genre, artist, releaseDate) VALUES ('Fearless', 'Country', 1, '2008-11-11'),
+                                                                     ('Speak Now', 'Country', 1, '2010-10-25'),
+                                                                     ('Red', 'Pop', 1, '2012-10-22'),
+                                                                     ('1989', 'Pop', 1, '2014-10-27'),
+                                                                     ('Reputation', 'Pop', 1, '2017-11-10'),
+                                                                     ('Lover', 'Pop', 1, '2019-08-23'),
+                                                                     ('Folklore', 'folk/indie', 1, '2020-07-24'),
+                                                                     ('Evermore', 'folk/indie', 1, '2020-12-11'),
+                                                                     ('Midnights', 'Pop', 1, '2022-10-21'),
+                                                                     ('The Tortured Poets Department', 'Pop', 1, '2024-04-19')
         ''')
 
         conn.commit()
-
-        print("\nTabelas 'Album', 'Artist' e 'Music' criadas com sucesso!")
-
-        print("\nEstes são todos os álbuns de Taylor Swift lançados até o momento:\n")
-
-        cursor.execute("SELECT id, title FROM Album")
-
-        rows = cursor.fetchall()
-
-        for row in rows:
-            print(row)
 
     except sqlite3.Error as e:
         print(f"Erro ao acessar o banco de dados: {e}")
