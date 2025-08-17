@@ -1,6 +1,7 @@
 from src.domains.Music.Music import Music
 import sqlite3
 
+# Esta função acessa o banco de dados e recupera o id e o nome de todas as músicas cadastradas até então:
 def getMusics() -> None:
 
     try:
@@ -21,6 +22,7 @@ def getMusics() -> None:
         if conn:
             conn.close()
 
+# Esta função acessa o banco de dados e recupera o id e o nome de todas as músicas de um álbum específico:
 def getAlbumMusics(albumID : int) -> None: 
 
     try:
@@ -41,7 +43,7 @@ def getAlbumMusics(albumID : int) -> None:
         if conn:
             conn.close()
 
-
+# Esta função acessa o banco de dados e recupera o nome e o álbum ao qual uma música específica pertence:
 def getMusicByID(musicID : int) -> Music:
 
     try:
@@ -67,6 +69,7 @@ def getMusicByID(musicID : int) -> Music:
         if conn:
             conn.close()
 
+# Esta função acessa o banco de dados e cria uma tupla na relação Music:
 def createMusic(title : str, album : int) -> Music:
 
     objectMusic = Music(title, album)
@@ -88,6 +91,7 @@ def createMusic(title : str, album : int) -> Music:
         if conn:
             conn.close()
 
+# Esta função acessa o banco de dados e atualiza uma tupla na relação Music:
 def updateMusic(musicID : int, title : str, album : int) -> Music:
 
     try:
@@ -120,6 +124,7 @@ def updateMusic(musicID : int, title : str, album : int) -> Music:
 
     return objectMusic
 
+# Esta função acessa o banco de dados e exclui uma tupla na relação Music:
 def deleteMusic(musicID : int) -> Music:
 
     try:

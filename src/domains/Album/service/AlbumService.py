@@ -1,6 +1,7 @@
 from src.domains.Album.Album import Album
 import sqlite3
 
+# Esta função acessa o banco de dados e recupera o id e o nome de todos os álbuns cadastrados até então:
 def getAlbums() -> None:
 
     try:
@@ -21,6 +22,7 @@ def getAlbums() -> None:
         if conn:
             conn.close()
 
+# Esta função acessa o banco de dados e recupera o nome, o gênero e a data de lançamento de um álbum específico:
 def getAlbumByID(albumID : int) -> Album:
 
     try:
@@ -46,7 +48,7 @@ def getAlbumByID(albumID : int) -> Album:
         if conn:
             conn.close()
 
-
+# Esta função acessa o banco de dados e cria uma tupla na relação Album:
 def createAlbum(title : str, genre : str, releaseDate : str) -> Album:
 
     objectAlbum = Album(title, genre, releaseDate)
@@ -68,7 +70,7 @@ def createAlbum(title : str, genre : str, releaseDate : str) -> Album:
         if conn:
             conn.close()
 
-
+# Esta função acessa o banco de dados e atualiza uma tupla na relação Album:
 def updateAlbum(albumID : int, title : str, genre : str, releaseDate : str) -> Album:
 
     try:
@@ -98,6 +100,7 @@ def updateAlbum(albumID : int, title : str, genre : str, releaseDate : str) -> A
         if conn:
             conn.close()
 
+# Esta função acessa o banco de dados e exclui uma tupla na relação Album:
 def deleteAlbum(albumID : int) -> Album:
 
     try:
