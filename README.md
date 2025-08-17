@@ -31,3 +31,5 @@ docker compose run --rm db
 ```
 
 Para parar a execução, pressione Ctrl+C.
+
+Possíveis novas features que podem ser implementadas são: a possibilidade de "se arrepender" da opção escolhida e, ao invés de retornar o ID do álbum, retornar seu nome.

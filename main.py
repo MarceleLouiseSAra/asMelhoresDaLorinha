@@ -123,7 +123,7 @@ def main():
 
             elif (control==2):
                 print("\nInsira o novo álbum ao qual a música pertence: ")
-                musicAlbum = verificaEntradaAlfabetica()
+                musicAlbum = verificaEntradaNumérica()
                 objectMusic.album = musicAlbum
 
             else:
