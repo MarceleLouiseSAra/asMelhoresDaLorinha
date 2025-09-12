@@ -9,7 +9,6 @@ print("\nOlha nós outra vez no ar!")
 
 def main():
 
-
     print("\nOlá!, seja bem vinde! Esta aplicação te permite reunir suas músicas favoritas da Taylor Swift!"
     "\nEla conta com todos os álbuns já lançados até o momento e te permite adicionar as músicas que você mais gosta a cada um deles,"
     "\ncomo uma playlist personalizada organizada por álbum.")
@@ -62,7 +61,8 @@ def main():
 
         elif (control==4):
             print("\nVocê deseja acessar um álbum específico. Que álbum é esse? ")
-            albumID = verificaEntradaNumérica()
+            # albumID = verificaEntradaNumérica()
+            albumID = verificaEntradaAlfabetica()
             routeGetAlbumByID(albumID)
         
         elif (control==5):

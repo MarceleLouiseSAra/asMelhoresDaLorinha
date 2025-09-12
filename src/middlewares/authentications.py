@@ -50,8 +50,16 @@ def verificaData() -> str:
     
         data = input("Insira a data no formato 'DD-MM-YYYY': ")
 
+        # if (data):
+        #     continue
+
         try:
             dataFormatada = datetime.strptime(data, '%d-%m-%Y').strftime('%Y-%m-%d')
+
+            if (dataFormatada > datetime.now.strftime('%Y-%m-%d')):
+                print("\nSó são aceitas datas iguais ou anteriores à data de hoje.")
+                continue
+
             return dataFormatada
         
         except (ValueError, TypeError):
